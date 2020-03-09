@@ -4,27 +4,27 @@ import logo from "./logo-rafa.svg";
 import iconGithub from "./github.svg";
 import iconLinkedin from "./linkedin.svg";
 import iconTwitter from "./twitter.svg";
+import iconWorld from "./world.svg";
+import mock from "./mock.js";
 
 import "./App.css";
 
 function App() {
-  // const [data, setData] = useState([]);
-  // const [loading, setLoading] = useState(true);
-  // const [hasError, setErrors] = useState(false);
+  const [data, setData] = useState(mock);
+  const [loading, setLoading] = useState(true);
+  const [hasError, setErrors] = useState(false);
 
-  // async function fetchUrl() {
-  //   const response = await fetch(
-  //     "https://api.github.com/users/rafaelmelon/repos"
-  //   );
-  //   const json = await response.json();
-  //   setData(json);
-  //   setLoading(false);
-  // }
-  // useEffect(() => {
-  //   fetchUrl();
-  // }, []);
-
-  // const showData = Array.isArray(data) && !hasError;
+  async function fetchUrl() {
+    const response = await fetch(
+      "https://api.github.com/users/rafaelmelon/repos"
+    );
+    const json = await response.json();
+    setData(json);
+    setLoading(false);
+  }
+  useEffect(() => {
+    fetchUrl();
+  }, []);
 
   return (
     <div className="App">
@@ -44,27 +44,23 @@ function App() {
           </a>
         </div>
       </header>
-
-      {/* {showData && (
-        <section className="App-section">
-          {data.map(item => (
-            <div>
-              <p>{item.name}</p>
-              <div>{item.updated_at}</div>
-              <div>
-                {item.homepage && (
-                  <a href={item.homepage} target="_blank">
-                    <img src="" />
-                  </a>
-                )}
-                <a href={item.html_url} target="_blank">
-                  <img src="" />
+      <section className="App-section">
+        {data.map((item, index) => (
+          <div key={item.name + index} className="App-section-element">
+            <h3>{item.name}</h3>
+            <div className="App-section-info">
+              {item.homepage && (
+                <a href={item.homepage} target="_blank">
+                  <img src={iconWorld} alt="World logo" />
                 </a>
-              </div>
+              )}
+              <a href={item.html_url} target="_blank">
+                <img src={iconGithub} alt="GitHub logo" />
+              </a>
             </div>
-          ))}
-        </section>
-      )} */}
+          </div>
+        ))}
+      </section>
     </div>
   );
 }
