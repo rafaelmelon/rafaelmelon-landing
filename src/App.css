@@ -59,8 +59,6 @@
 }
 
 .App-media > a:hover {
-  background-color: white;
-  border: 5px solid black;
   box-shadow: 2px 2px 0 0px black;
   transform: translate(-2px, -2px);
 }
@@ -78,19 +76,32 @@
 
 .App-section-element {
   display: flex;
-  flex-direction: column;
   flex: auto;
   justify-content: space-between;
   border: 5px solid black;
-  border-radius: 10px;
+  border-radius: 15px;
+  transition: all 0.2s linear;
   margin: 10px;
-  padding: 20px;
-}
-
-.App-section-element h3 {
+  padding: 5px;
+  text-decoration: none;
   font-size: 3vh;
   font-weight: 500;
-  margin: 0;
+  color: black;
+}
+
+.App-section-element:hover {
+  box-shadow: 2px 2px 0 0px black;
+  transform: translate(-2px, -2px);
+}
+
+.App-section-element img {
+  width: 30px;
+  height: 30px;
+}
+
+
+.App-section-element p {
+  margin: 0 0 0 10px;
 }
 
 .App-section-info {

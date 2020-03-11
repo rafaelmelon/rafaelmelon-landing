@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 
 import logo from "./logo-rafa.svg";
 import iconGithub from "./github.svg";
@@ -46,9 +46,15 @@ function App() {
       </header>
       <section className="App-section">
         {data.map((item, index) => (
-          <div key={item.name + index} className="App-section-element">
-            <h3>{item.name}</h3>
-            <div className="App-section-info">
+          <Fragment key={item.name + index}>
+            <a
+              href={item.html_url}
+              target="_blank"
+              className="App-section-element"
+            >
+              <img src={iconGithub} alt="GitHub logo" />
+              <p>{item.name}</p>
+              {/* <div className="App-section-info">
               {item.homepage && (
                 <a href={item.homepage} target="_blank">
                   <img src={iconWorld} alt="World logo" />
@@ -57,8 +63,19 @@ function App() {
               <a href={item.html_url} target="_blank">
                 <img src={iconGithub} alt="GitHub logo" />
               </a>
-            </div>
-          </div>
+            </div> */}
+            </a>
+            {item.homepage && (
+              <a
+                href={item.homepage}
+                target="_blank"
+                className="App-section-element"
+              >
+                <img src={iconWorld} alt="World logo" />
+                <p>{item.name}</p>
+              </a>
+            )}
+          </Fragment>
         ))}
       </section>
     </div>
