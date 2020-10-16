@@ -1,0 +1,50 @@
+.loader {
+  display: flex;
+}
+
+.portfolio {
+  flex: 1 1 48%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 0 1%;
+}
+
+.portfolio ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.portfolio ul li {
+  flex: 1;
+  display: flex;
+}
+
+.portfolio a {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid black;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  font-size: 2.5vh;
+  font-weight: 500;
+  color: black;
+}
+
+.portfolio a:hover {
+  border: 4px solid white;
+}
+
+.portfolio a img {
+  width: 30px;
+  height: 30px;
+  margin-right: 0.5rem;
+}
+
+.portfolio a p {
+  margin: 0 0 0 0.5rem;
+}
